@@ -24,7 +24,8 @@ export default function BuildTheFuture({ data }: { data: any }) {
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card: any) => {
-            const iconUrl = getStrapiMedia(card.icon.url);
+            // FIX: Use optional chaining (?.) to prevent crash if icon is null
+            const iconUrl = getStrapiMedia(card.icon?.url);
 
             return (
               <div
@@ -37,10 +38,10 @@ export default function BuildTheFuture({ data }: { data: any }) {
                     <div className="relative w-6 h-6">
                       <Image
                         src={iconUrl}
-                        alt={card.icon.name}
+                        alt={card.icon?.name || card.title} // Fallback alt text
                         fill
                         className="object-contain"
-                        // Optional: Filter to recolor black SVGs to gold. Remove if icons are already gold.
+                        // Optional: Filter to recolor black SVGs to gold.
                         style={{
                           filter:
                             "brightness(0) saturate(100%) invert(48%) sepia(35%) saturate(928%) hue-rotate(2deg) brightness(96%) contrast(92%)",

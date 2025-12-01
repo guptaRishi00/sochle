@@ -53,7 +53,9 @@ export default function HeroSection({ data }: { data: any }) {
 
             {/* Trusted By Section */}
             <div className="mt-12 lg:mt-16 lg:space-y-0 space-y-2 lg:flex items-center justify-between">
-              <p className="text-md font-bold text-gray-900">{trusted}</p>
+              <p className="text-md font-bold lg:max-w-xs w-full text-gray-900">
+                {trusted}
+              </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-10 items-center transition-all duration-300">
                 {icons.map((icon: any) => {
                   const iconUrl = getStrapiMedia(icon.url);

@@ -128,7 +128,7 @@ export default function Header({ data, lang }: { data: any; lang: string }) {
             {isLangOpen && (
               <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col py-2 z-50">
                 <Link
-                  href={getPathForLang("en-US")} // Or "en"
+                  href={getPathForLang("en")} // Or "en"
                   onClick={() => setIsLangOpen(false)}
                   className={`px-6 py-3 text-sm font-bold hover:bg-gray-50 flex items-center justify-between ${
                     lang.includes("en") ? "text-[#333C88]" : "text-gray-600"
