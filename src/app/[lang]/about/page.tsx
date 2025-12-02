@@ -5,8 +5,17 @@ import OurTeam from "@/components/aboutpage/OurTeam";
 import WhyClient from "@/components/aboutpage/WhyClient";
 import { getPageData } from "@/data/loader";
 
-export default async function About() {
-  const response = await getPageData("about");
+// 1. Add the params prop with the correct type
+export default async function About({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  // 2. Await the params to get the language (Required in Next.js 15)
+  const { lang } = await params;
+
+  // 3. Pass 'lang' to getPageData so it fetches the correct locale
+  const response = await getPageData("about", lang);
 
   // Check if data exists and extract the first item from the array
   if (!response?.data || response.data.length === 0) return null;
@@ -18,22 +27,20 @@ export default async function About() {
     (block: any) => block.__component === "aboutpage.hero-section"
   );
 
-  // 2. Our Story Section
+  // ... (Rest of your component logic remains the same)
+
   const ourStoryData = blocks.find(
     (block: any) => block.__component === "aboutpage.our-story"
   );
 
-  // 3. Our Mission Section
   const ourMissionData = blocks.find(
     (block: any) => block.__component === "aboutpage.our-mission"
   );
 
-  // 4. Our Team Section
   const ourTeamData = blocks.find(
     (block: any) => block.__component === "aboutpage.our-team"
   );
 
-  // 5. Why Clients Choose Us Section
   const whyClientsData = blocks.find(
     (block: any) => block.__component === "aboutpage.why-clients"
   );
