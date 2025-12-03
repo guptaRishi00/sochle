@@ -41,6 +41,16 @@ const dictionaries = {
         closed: "Closed",
       },
     },
+    // ADDED HOMEPAGE SECTION
+    homepage: {
+      expertAdvice: {
+        part1: "HELPING",
+        part2: "BUSINESSES",
+        part3: "THRIVE IN A",
+        part4: "DIGITAL-FIRST WORLD",
+        readMore: "Read More",
+      },
+    },
   },
   fr: {
     blog: {
@@ -80,6 +90,16 @@ const dictionaries = {
         sat: "Samedi",
         sun: "Dimanche",
         closed: "Fermé",
+      },
+    },
+    // ADDED HOMEPAGE SECTION (FRENCH)
+    homepage: {
+      expertAdvice: {
+        part1: "AIDER LES",
+        part2: "ENTREPRISES",
+        part3: "À PROSPÉRER DANS UN",
+        part4: "MONDE NUMÉRIQUE",
+        readMore: "Lire la suite",
       },
     },
   },
